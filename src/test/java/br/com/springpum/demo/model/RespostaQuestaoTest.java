@@ -23,16 +23,24 @@ class RespostaQuestaoTest {
 
     @Test
     public void deveRetornarAluno(){
-      Optional<List<RespostaQuestao>> respostaQuestaoList=  resposta.respostaAlunoId(1L);
-        Assertions.assertEquals(respostaQuestaoList.get().size(), 1);
+      List<RespostaQuestao> respostaQuestaoList =  resposta.respostaAlunoId(1L);
+        Assertions.assertEquals(respostaQuestaoList.size(), 1);
 
     }
 
     @Test
     public void  deveRetornarListaDeRespostaVazia(){
 
-        Optional<List<RespostaQuestao>> respostaQuestaoList=  resposta.respostaAlunoId(10L);
-        Assertions.assertEquals(respostaQuestaoList.get().size(), 0);
+        List<RespostaQuestao> respostaQuestaoList=  resposta.respostaAlunoId(10L);
+        Assertions.assertEquals(respostaQuestaoList.size(), 0);
+    }
+
+    @Test
+    public void deveRetornarListaMaiorQueUm(){
+
+        List<RespostaQuestao> respostaQuestaoList=  resposta.respostaAlunoId(2L);
+        Assertions.assertTrue(respostaQuestaoList.size() > 1);
+
     }
 
 }

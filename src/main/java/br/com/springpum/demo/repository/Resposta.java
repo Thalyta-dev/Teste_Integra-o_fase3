@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface Resposta extends CrudRepository<RespostaQuestao,Long> {
 
         @Query(value = "select * from resposta_questao r where r.aluno_id = :id", nativeQuery = true)
-        Optional<List<RespostaQuestao>> respostaAlunoId(Long id);
+        List<RespostaQuestao> respostaAlunoId(Long id);
 
 
 }
